@@ -1,0 +1,13 @@
+Event Loop
+1. tick is one full iteration of event loop
+2. process.nextTick() callback is invoked at the end of current operation 
+and start of next tick.
+3. Event loop working strategy
+    a. any cb in the nextTick queue.
+    b. any cb in the promise queue.
+    c. one by one cb in the timer queue. But after every cb execution we repeat
+    step1 and step2
+    d. pending cb in the I/O callback queue
+    e. polling happens to check if any I/O has completed.
+    f. cb in the check queue i.e setImmediate() 
+    g. close queue like close tcp connection etc 
